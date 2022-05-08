@@ -23,7 +23,12 @@ public class Book {
 	   public void setName(String Name) {
 		   name = Name;
 	   }
-	   /*public void setName(int Id) {
-		   id = Id;
-	   }*/
+
+	@Override
+	public String toString() {
+		return "Libro: " +
+				"Id=" + id +
+				", Nombre='" + name + '\'' +
+				'}';
 	}
+}

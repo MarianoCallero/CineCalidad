@@ -16,4 +16,8 @@ public interface PeliculaSessionBeanRemote {
 	int getO();
 
 	Book getBook(int id);
+
+	void Modificar(int id, String n);
+
+	String toString();
 }

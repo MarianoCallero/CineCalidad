@@ -44,4 +44,18 @@ public class PeliculaSessionBean implements PeliculaSessionBeanRemote {
 
    @Override
     public Book getBook(int id){return bookShelf.get(id);}
+
+   @Override
+   public void Modificar (int id, String n){
+      getBook(id).setName(n);
+   }
+   @Override
+   public String toString() {
+      String ret="";
+      ret="Lista de Libros:";
+      for(int i=0; i< bookShelf.size();i++){
+         ret="/n"+bookShelf.get(i).toString();
+      }
+      return ret;
+   }
 }

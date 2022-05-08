@@ -27,6 +27,22 @@ public class Consola {
         }while(nom=="");
         consola.getInstance().addBook(nom);
     }
+    public void ModificarLibro(){
+        consola.getInstance().toString();
+        System.out.print("Ingrese el id del libro a modifcar");
+        int mod=-1;
+        mod = teclado.nextInt();
+        if (mod <0 || mod > consola.getInstance().getBooks().size()) {
+            System.out.println("OPCION INCORRECTA");
+            ModificarLibro();
+        }
+        System.out.print("Ingrese nuevo nombre: ");
+        String nom = "";
+        do{
+            nom = teclado.next();
+        }while(nom=="");
+        consola.getInstance().Modificar(mod,nom);
+    }
     public static void Main(){
 
     }
