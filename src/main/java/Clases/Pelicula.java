@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Pelicula {
     private int Id;
-    private Date Lanzamiento;
+    private String Lanzamiento;
     private String Nombre;
     private String Descripcion;
 
     public Pelicula() {}
 
-    public Pelicula(int id, Date lanzamiento, String nombre, String descripcion) {
+    public Pelicula(int id, String lanzamiento, String nombre, String descripcion) {
         Id = id;
         Lanzamiento = lanzamiento;
         Nombre = nombre;
@@ -25,11 +25,11 @@ public class Pelicula {
         Id = id;
     }
 
-    public Date getLanzamiento() {
+    public String getLanzamiento() {
         return Lanzamiento;
     }
 
-    public void setLanzamiento(Date lanzamiento) {
+    public void setLanzamiento(String lanzamiento) {
         Lanzamiento = lanzamiento;
     }
 

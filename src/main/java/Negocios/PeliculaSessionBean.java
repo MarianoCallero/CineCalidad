@@ -9,18 +9,21 @@ import javax.ejb.Stateless;
 @Stateless
 public class PeliculaSessionBean implements PeliculaSessionBeanRemote {
 
-   private List<Pelicula> Peliculas=null;
+   public String h="hola";
+   private List<Pelicula> Peliculas= new ArrayList<Pelicula>();
+
 
    public PeliculaSessionBean() {
+      Peliculas.add(new Pelicula(0,"12/12/12","algo","detalle"));
    }
 
    @Override
-   public void addPeliculas(Date lanzamiento, String nombre, String descripcion){
+   public void addPeliculas(String lanzamiento, String nombre, String descripcion){
       int id;
       if (Peliculas==null){
          Peliculas = new ArrayList<Pelicula>();
          id =0;
-      }else{id= Peliculas.size()+1;}
+      }else{id= Peliculas.size();}
       Peliculas.add(new Pelicula (id, lanzamiento, nombre, descripcion));
    }
    @Override
@@ -30,5 +33,17 @@ public class PeliculaSessionBean implements PeliculaSessionBeanRemote {
    @Override
    public List getPeliculas(){
       return Peliculas;
+   }
+
+   @Override
+   public String toString() {
+      String ret="Peliculas: \n";
+      if (Peliculas!= null){
+         for (int i=0; i< Peliculas.size();i++){
+            ret = ret + Peliculas.get(i).toString();
+            ret = ret +"\n";
+         }
+      }else{ret = ret + "VACIO";}
+      return ret;
    }
 }

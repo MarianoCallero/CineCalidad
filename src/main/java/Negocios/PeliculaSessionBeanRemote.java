@@ -1,6 +1,5 @@
 package Negocios;
 
-import Clases.Book;
 import Clases.Pelicula;
 
 import java.util.Date;
@@ -9,7 +8,7 @@ import javax.ejb.Remote;
  
 @Remote
 public interface PeliculaSessionBeanRemote {
-	void addPeliculas(Date lanzamiento, String nombre, String descripcion);
+	void addPeliculas(String lanzamiento, String nombre, String descripcion);
 
 	Pelicula getPelicula(int id);
 

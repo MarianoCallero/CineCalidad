@@ -1,56 +1,50 @@
 package Negocios;
 
 import java.awt.*;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Consola {
-    PeliculaSessionBean consola;
-    Scanner teclado = new Scanner(System.in);
-    public static void AgregarLibro(){
+    static PeliculaSessionBean consola = new PeliculaSessionBean();
+    static Scanner teclado = new Scanner(System.in);
+    public static void AgregarPelicula(){
         System.out.print("Ingrese el nombre: ");
         String nom = "";
         do{
             nom = teclado.next();
         }while(nom=="");
         System.out.println("Nombre ingresado: "+nom);
-        consola.getInstance().addBook(nom);
-    }
-    public static void ModificarLibro(){
-        consola.getInstance().toString();
-        System.out.print("Ingrese el id del libro a modifcar");
-        int mod=-1;
-        mod = teclado.nextInt();
-        if (mod <0 || mod > consola.getInstance().getBooks().size()) {
-            System.out.println("OPCION INCORRECTA");
-            ModificarLibro();
-        }
-        System.out.print("Ingrese nuevo nombre: ");
-        String nom = "";
+        System.out.print("Ingrese el nombre: ");
+        String det = "";
         do{
-            nom = teclado.next();
-        }while(nom=="");
-        consola.getInstance().Modificar(mod,nom);
+            det = teclado.next();
+        }while (det=="");
+        System.out.println("Detalle ingresado: "+det);
+        System.out.print("Ingrese el fecha de lanzamiento dd/mm/aa: ");
+        String lan = "";
+        do{
+            lan = teclado.next();
+        }while(lan=="");
+        System.out.println("Lazamiento ingresado: "+lan);
+        consola.addPeliculas(lan,nom,det);
     }
 
-    public void ListarLibros(){consola.getInstance().toString();}
+    public static void listarPeliculas(){System.out.print(consola.toString());}
 
     public static void Menu(){
         System.out.println("      MENU");
-        System.out.println("1) Agregar libro");
-        System.out.println("2) Modificar libro");
-        System.out.println("3) Listar Libros");
+        System.out.println("1) Agregar Pelicula");
+        System.out.println("2) Listar Pelicula");
+        System.out.println("0) Salir");
         System.out.print("Opcion: ");
         int op=-1;
         op = teclado.nextInt();
         switch (op){
             case 1:
-                AgregarLibro();
+                AgregarPelicula();
                 break;
             case 2:
-                ModificarLibro();
-                break;
-            case 3:
-                ListarLibros();
+                listarPeliculas();
                 break;
             case 0:
                 System.out.println("Gracias por preferirnos");
