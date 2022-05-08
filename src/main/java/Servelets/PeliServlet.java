@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Negocios.PeliculaSessionBean;
+import Negocios.PeliculaSessionBeanRemote;
 
 
 /**
@@ -31,8 +34,10 @@ public class PeliServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @EJB
-    PeliculaSessionBean statelessBean;
+
+   /* @EJB
+	@Inject
+	PeliculaSessionBean statelessBean;*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String yourName = request.getParameter("yourName");
 		PrintWriter writer = response.getWriter();
@@ -43,8 +48,8 @@ public class PeliServlet extends HttpServlet {
 	  protected void doGet(HttpServletRequest request,
               HttpServletResponse response) throws IOException {
 			PrintWriter writer = response.getWriter();
-			
-			int message = statelessBean.getO();
+			PeliculaSessionBean p = new PeliculaSessionBean();
+			String message = p.getPelicula(0).toString();
 			
 			writer.println(message);
 	  }

@@ -1,47 +1,49 @@
 package Negocios;
-import Clases.Book;
+import Clases.Pelicula;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
  
 @Stateless
 public class PeliculaSessionBean implements PeliculaSessionBeanRemote {
-    
-   private List<Book> bookShelf;
-   private PeliculaSessionBean instance= null;
-   public int P = 1;
+
+   public String h="hola";
+   private List<Pelicula> Peliculas= new ArrayList<Pelicula>();
+
 
    public PeliculaSessionBean() {
-      bookShelf = new ArrayList<Book>();
+      Peliculas.add(new Pelicula(0,"12/12/12","algo","detalle"));
    }
 
    @Override
-   public PeliculaSessionBean getInstance(){
-       if (instance==null)
-           instance=new PeliculaSessionBean();
-       return instance;
+   public void addPeliculas(String lanzamiento, String nombre, String descripcion){
+      int id;
+      if (Peliculas==null){
+         Peliculas = new ArrayList<Pelicula>();
+         id =0;
+      }else{id= Peliculas.size();}
+      Peliculas.add(new Pelicula (id, lanzamiento, nombre, descripcion));
+   }
+   @Override
+   public Pelicula getPelicula(int id){
+      return Peliculas.get(id);
+   }
+   @Override
+   public List getPeliculas(){
+      return Peliculas;
    }
 
    @Override
-   public void addBook(String bookName) {
-      Book in;
-      int id = bookShelf.size()+1;
-      in = new Book(id,bookName);
-       bookShelf.add(in);
-   }    
-
-   @Override
-   public List<Book> getBooks() {
-      return bookShelf;
+   public String toString() {
+      String ret="Peliculas: \n";
+      if (Peliculas!= null){
+         for (int i=0; i< Peliculas.size();i++){
+            ret = ret + Peliculas.get(i).toString();
+            ret = ret +"\n";
+         }
+      }else{ret = ret + "VACIO";}
+      return ret;
    }
-
-   @Override
-   public int getO() {
-	   	int O = 1 + 1;
-	      return  O;
-	   }
-
-   @Override
-    public Book getBook(int id){return bookShelf.get(id);}
 }
