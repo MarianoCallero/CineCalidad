@@ -1,23 +1,17 @@
 package Negocios;
 
 import Clases.Book;
+import Clases.Pelicula;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
  
 @Remote
 public interface PeliculaSessionBeanRemote {
+	void addPeliculas(Date lanzamiento, String nombre, String descripcion);
 
-	PeliculaSessionBean getInstance();
+	Pelicula getPelicula(int id);
 
-	void addBook(String bookName);
-	List getBooks();
-
-	int getO();
-
-	Book getBook(int id);
-
-	void Modificar(int id, String n);
-
-	String toString();
+	List getPeliculas();
 }
