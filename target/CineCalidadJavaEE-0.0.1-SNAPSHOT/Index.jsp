@@ -14,8 +14,11 @@
     <input type="submit" value="Call Servlet post" />
 </form>
 <form action="PeliServlet" method="get">
-    <input type="submit" value="Call Servlet get" />
+    <input type="submit" value="Call Servlet get"/>
 </form>
-</center>
+    <button type="button">Listar</button>
+    <button type="button">Buscar</button>
+    <button type="button">Agregar</button>
+ </center>
 </body>
 </html>
