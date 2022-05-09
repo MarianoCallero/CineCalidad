@@ -15,6 +15,8 @@ public class PeliculaSessionBean implements PeliculaSessionBeanRemote {
 
    public PeliculaSessionBean() {
       Peliculas.add(new Pelicula(0,"12/12/12","algo","detalle"));
+      Peliculas.add(new Pelicula(1,"12/12/12","algo1","detalle1"));
+      Peliculas.add(new Pelicula(2,"12/12/12","algo2","detalle2"));
    }
 
    @Override

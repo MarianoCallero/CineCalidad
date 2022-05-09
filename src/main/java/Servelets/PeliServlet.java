@@ -35,9 +35,7 @@ public class PeliServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 
-   /* @EJB
-	@Inject
-	PeliculaSessionBean statelessBean;*/
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String yourName = request.getParameter("yourName");
 		PrintWriter writer = response.getWriter();
@@ -48,7 +46,7 @@ public class PeliServlet extends HttpServlet {
 	  protected void doGet(HttpServletRequest request,
               HttpServletResponse response) throws IOException {
 			PrintWriter writer = response.getWriter();
-			PeliculaSessionBean p = new PeliculaSessionBean();
+			PeliculaSessionBeanRemote p = new PeliculaSessionBean();
 			String message = p.getPelicula(0).toString();
 			
 			writer.println(message);

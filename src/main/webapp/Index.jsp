@@ -16,6 +16,7 @@
 <form action="PeliServlet" method="get">
     <input type="submit" value="Call Servlet get" />
 </form>
+    <a href="AddPel.jsp">Agregar Pelicula</a>
 </center>
 </body>
 </html>
