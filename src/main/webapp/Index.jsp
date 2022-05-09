@@ -10,13 +10,9 @@
 <center>
 <h1>Bienvenidos a CineCalidad</h1>
 <form action="PeliServlet" method="post">
-    Enter your name: <input type="text" name="yourName" size="20">
-    <input type="submit" value="Call Servlet post" />
+    <input type="submit" value="Ingresar" />
 </form>
-<form action="PeliServlet" method="get">
-    <input type="submit" value="Call Servlet get" />
-</form>
-    <a href="AddPel.jsp">Agregar Pelicula</a>
+
 </center>
 </body>
 </html>
